@@ -1,6 +1,7 @@
 package ejercicio1B2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import utilidades.Leer;
@@ -24,15 +25,18 @@ public class Principal {
 //			* Obtener los alumnos que empiecen por la letra A y la longitud de su nombre sea menor o igual a 6.
 		
 		int opcion=0;
+		String letra;
 		
-		List<Alumno> lista = new ArrayList<>();
-		lista.add(new Alumno("Tomas","del Pino","DAM",7.5,19));
-		lista.add(new Alumno("Eduardo","Granadas","DAM",5.2,42));
-		lista.add(new Alumno("Jamal","Musiala","DAM",9.3,18));
-		lista.add(new Alumno("Francisco","Rodriguez","DAM",9.7,24));
-		lista.add(new Alumno("Anastasia","Benitez","DAM",8.3,21));
-		lista.add(new Alumno("Tomas","Ruiz","DAM",7.2,18));
-		lista.add(new Alumno("Jose Francisco","Perez","DAM",6.8,19));
+		List<Alumno> lista = Arrays.asList(
+				new Alumno("Tomas","del Pino","DAM",7.5,19),
+				new Alumno("Eduardo","Granadas","DAM",5.2,42),
+				new Alumno("Jamal","Musiala","DAM",9.3,18),
+				new Alumno("Francisco","Rodriguez","DAM",9.7,24),
+				new Alumno("Anastasia","Benitez","DAM",8.3,21),
+				new Alumno("Tomas","Ruiz","DAM",7.2,18),
+				new Alumno("Jose Francisco","Perez","DAM",6.8,19),
+				new Alumno("Ana","Acuña","DAM",6.8,19)
+				);
 		
 		Secretaria s = new Secretaria(lista);
 		
@@ -42,39 +46,52 @@ public class Principal {
 			
 			switch(opcion) {
 			case 1:
+				s.imprimirLista(s.mayores20());
 				break;
 				
 			case 2:
+				s.imprimirLista();
 				break;
 				
 			case 3:
+				System.out.println("Con que letra empiezan?");
+				letra=Leer.dato();
+				s.imprimirLista(s.empiezanPor(letra));
 				break;
 				
 			case 4:
+				System.out.println("El tamaño de la lista es de " + s.getTamano());
 				break;
 				
 			case 5:
+				s.imprimirLista(s.filtrarEncima9());
 				break;
 				
 			case 6:
+				s.imprimirLista(s.obtener3Primeros());
 				break;
 				
 			case 7:
+				System.out.println("El alumno de menor edad es " + s.encontrarMenorEdad());
 				break;
 				
 			case 8:
+				s.obtenerPrimero();
 				break;
 				
 			case 9:
+				s.imprimirLista(s.filtrarMas10Letras());
 				break;
 				
 			case 10:
+				s.imprimirLista(s.filtrar6LetrasConA());
 				break;
 			}
 		}while(opcion!=0);
 	}
 
 	public static void imprimirMenu() {
+		System.out.println("\n*******************************************************\n");
 		System.out.println("1. Obtener datos de alumnos, filtrando los mayores de 20.");
 		System.out.println("2. Imprimir todos los alumnos con ForEach.");
 		System.out.println("3. Imprimir todos los alumnos cuyos nombres empiecen con T.");
@@ -85,5 +102,6 @@ public class Principal {
 		System.out.println("8. Obtener primer alumno de la lista.");
 		System.out.println("9. Obtener nueva lista de alumnos cuyos nombres tengan más de 10 letras.");
 		System.out.println("10. Obtener alumnos cuyos nombres empiecen por A, con nombres más largos que 6 caracteres.");
+		System.out.println("\n*******************************************************\n");
 	}
 }
