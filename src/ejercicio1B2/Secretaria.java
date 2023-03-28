@@ -43,7 +43,7 @@ public class Secretaria {
 	
 	public List<Alumno> filtrar6LetrasConA(){
 		List<Alumno> lista10letras = lista.stream()
-				.filter(a -> a.getNombre().length() > 6 && a.getNombre().substring(0,1).equalsIgnoreCase("A"))
+				.filter(a -> a.getNombre().length() <= 6 && a.getNombre().substring(0,1).equalsIgnoreCase("A"))
 				.collect(Collectors.toList());
 		
 		return lista10letras;
@@ -80,7 +80,7 @@ public class Secretaria {
 		lista.forEach(System.out::println);
 	}
 	
-	public int getTamano() {
-		return lista.size();
+	public long getTamano() {
+		return lista.stream().count();
 	}
 }

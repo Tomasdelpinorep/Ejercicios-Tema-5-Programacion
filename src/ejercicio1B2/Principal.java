@@ -1,6 +1,5 @@
 package ejercicio1B2;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class Principal {
 				new Alumno("Anastasia","Benitez","DAM",8.3,21),
 				new Alumno("Tomas","Ruiz","DAM",7.2,18),
 				new Alumno("Jose Francisco","Perez","DAM",6.8,19),
-				new Alumno("Ana","Acuña","DAM",6.8,19)
+				new Alumno("Ana","Acuña","DAM",6.8,20)
 				);
 		
 		Secretaria s = new Secretaria(lista);
